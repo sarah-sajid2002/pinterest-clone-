@@ -1,0 +1,57 @@
+==> pinterest clone notes
+==> data association
+    ek model se doosre model ke data ko jod dena id ke through, matlab ki agar aap ke paas ek user hai to wo post bnaayega hi, jab post banega to wo user ke dwaara hi banega, to hum kya karte hai jab do aise data aapas mein closely related hote hai to hum dono ko jod dete hai, ki ek model ke bane huye data ki id ko doosre model ke data ko dedete hai aur is model ke data ki id pichhle model ke data ko dedete hai.
+
+packages to install:
+    npm i passport passport-local passport-local-mongoose express-session mongoose
+
+
+
+
+
+{
+  /*  practice work 
+  // GET home page.
+  router.get("/", function (req, res) {
+    res.render("index");
+  });
+  
+  // router to create user
+  router.get("/createUser", async function (req, res) {
+    console.log("Creating user...");
+    let user = await userModel.create({
+      username: "sarah",
+      email: "sarahsajid19@gmail.com",
+      password: "12345678910223312",
+      fullName: "sajid",
+    });
+    console.log("User created:", user);
+    res.send(user);
+  });
+  
+  // router to create post
+  router.get("/createPost", async function (req, res) {
+    console.log("Creating post...");
+    const postCreated = await postModel.create({
+      text: "hello its my first post",
+      user: "65ac04026fcb80fbedde2cb2",
+    });
+    console.log("Post created:", postCreated);
+  
+    console.log("Updating user with post...");
+    let user = await userModel.findOne({ _id: "65ac04026fcb80fbedde2cb2" });
+    user.posts.push(postCreated._id);
+    await user.save();
+    console.log("Done");
+    res.send("done");
+  });
+  
+  // router to display all posts
+  router.get("/allPostsDisplay", async (req, res) => {
+    let allPosts = await userModel
+      .findOne({ _id: "65ac04026fcb80fbedde2cb2" })
+      .populate("posts");
+    res.send(allPosts);
+  });
+  */
+}
