@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .container {
   padding: 20px;
   display: flex;
@@ -31,6 +32,15 @@ body {
     30.1px 30.1px 24.1px rgba(0, 0, 0, 0.182),
     100px 100px 80px rgba(0, 0, 0, 0.28);
 }
+input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .content {
   width: 70%;
   position: relative;
@@ -171,4 +181,21 @@ hr {
   padding: 11px 20px;
   background-color: rgb(241, 236, 236);
   border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    min-height: 650px;
+  }
+}
+@media (max-width: 300px) {
+  .container {
+    width: 95%;
+  }
 }

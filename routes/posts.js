@@ -2,7 +2,15 @@ const mongoose = require("mongoose");
 
 // Post Model
 const postSchema = new mongoose.Schema({
+  image: {
+    type: String,
+  },
   text: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  description: {
     type: String,
     required: true,
     trim: true,

@@ -16,7 +16,13 @@
           alt="pin logo"
           class="img1"
         />
+
         <p class="header">login!</p>
+
+        <% if (error.length > 0){ %>
+        <p class="error"><%= error %></p>
+        <% } %>
+
         <form action="/login" method="post">
           <input
             type="text"
@@ -43,5 +49,6 @@
       </div>
     </div>
     <!-- <a href="/register" class="upbtn">Sign up</a> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

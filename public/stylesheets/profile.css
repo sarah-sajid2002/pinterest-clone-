@@ -3,9 +3,26 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.navbar-brand {
+  color: grey;
+  transition: color 0.3s;
+}
+
+.navbar-brand:hover {
+  color: black;
+}
+nav a {
+  margin-left: 20px;
+  background: transparent;
 }
 #algn {
-  height: 9vh;
+  /* height: 9vh; */
+  width: 70%;
   min-height: 500px;
   display: flex;
   justify-content: center;
@@ -13,19 +30,28 @@ body {
 }
 
 #card {
-  width: 60%;
-  height: 70vh;
+  margin-top: 40px;
+  width: 100%;
   border: none;
   border-radius: 25px;
+  background: rgb(231, 228, 228);
   overflow: hidden;
   box-shadow: 0px 6.3px 10px rgba(0, 0, 0, 0.025),
     0px 50px 80px rgba(0, 0, 0, 0.05);
 }
+input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
 #upper-bg {
   width: 100%;
-  height: 55%;
-  background-color: #f2a49a;
+  height: 350px;
+  background-color: white;
   display: flex;
   justify-content: center;
   position: relative;
@@ -42,27 +68,33 @@ body {
   border-radius: 50%;
   padding: 5px;
   position: absolute;
-  top: 100px;
+  top: 230px;
+  margin-bottom: 30px;
 }
 
 #lower-bg {
   width: 100%;
-  height: 45vh;
   margin-bottom: 30px;
 }
 
 .text {
   text-align: center;
   padding-top: 35px;
+  margin-top: 20px;
 }
 
 .text .name {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 40px;
   padding: 0;
   margin: 5px;
 }
-
+.categories,
+.description {
+  height: 30px;
+  text-align: center;
+  padding: 10px 0px;
+}
 .text .title {
   padding: 0;
   margin: 0;
@@ -73,19 +105,86 @@ body {
   display: flex;
   justify-content: center;
   margin: 15px;
+  text-transform: capitalize;
 }
 
 #btn button {
   margin: 0 20px;
   padding: 10px 15px;
-  background-color: #c23a09;
+  background-color: rgb(155, 146, 146);
   border: none;
   border-radius: 50px;
   font-weight: 700;
+  text-transform: capitalize;
 }
 
 #btn button:hover {
-  box-shadow: 0 4px 8px 0 #6aa3dc, 0 6px 20px 0 #e7e9eb;
+  box-shadow: 0 4px 8px 0 #e5e7e9, 0 6px 20px 0 #e7e9eb;
   cursor: pointer;
-  background-color: #782101;
+  background-color: rgb(116, 110, 110);
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.centralLine {
+  text-align: center;
+  height: 50px;
+  margin-top: 40px;
+}
+.centralLine button {
+  margin: 0 20px;
+  padding: 10px 15px;
+  background-color: rgb(240, 154, 154);
+  border: 2px solid red;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.createdportion {
+  width: 90%;
+  margin: 20px;
+  text-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createdportion .cards {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+}
+.title {
+  color: grey;
+}
+@media (max-width: 600px) {
+  #card {
+    width: 80%;
+  }
+}
+@media (max-width: 400px) {
+  #card {
+    width: 90%;
+  }
+  #btn {
+    margin: 5px;
+  }
+
+  #btn button {
+    margin: 0 10px;
+  }
+}
+@media (max-width: 300px) {
+  #btn button {
+    margin: 0 5px;
+  }
 }

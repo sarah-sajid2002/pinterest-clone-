@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/upload.css" />
+    <!-- bootstrap cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Create Pin | Pinterest</title>
+  </head>
+  <body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="/images/pinterest clone.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Pinterest
+      </a>
+      <a class="navbar-brand ml-3" href="/feed">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <a class="navbar-brand ml-23" href="/profile">Profile</a>
+          <a class="navbar-brand ml-3" href="/upload">Create Pin</a>
+          <a class="navbar-brand ml-3" href="/logout">logout</a>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="login-box">
+      <h2>Create Pin</h2>
+      <%if(error != ""){%>
+      <h3 class="oops">OOPS</h3>
+      <div class="alert alert-error"><%= error %></div>
+      <% }%>
+
+      <form
+        class="uploadForm"
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="user-box">
+          <input type="text" placeholder="title" name="filecaption" />
+        </div>
+        <div class="user-box">
+          <input type="text" placeholder="description" name="filrdescription" />
+        </div>
+        <div class="user-box">
+          <input type="file" name="file" />
+        </div>
+        <button class="upload">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          upload
+        </button>
+      </form>
+    </div>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

@@ -4,9 +4,19 @@
 
 packages to install:
     npm i passport passport-local passport-local-mongoose express-session mongoose
+    npm i connect-flash
+    multer:
+    image link: "https://drive.google.com/file/d/1JnfNi2LYjmOuaDj5_ytRfaVfuSmWelGq/view"
+    1) npm i uuid multer 
 
-
-
+image upload work:
+1) npm i uuid multer
+2) follow:
+    image link: "https://drive.google.com/file/d/1JnfNi2LYjmOuaDj5_ytRfaVfuSmWelGq/view"
+3) image extension :
+  go in multer.js and write:
+  const path = require("path");
+  cb(null, uniquename + path.extname(file.originalname));
 
 
 {
@@ -55,3 +65,17 @@ packages to install:
   });
   */
 }
+
+
+
+
+
+====================================================
+video register router// router.post("/register", (req, res) => {
+//   const userData = new userModel(({ username, email, fullname } = req.body));
+//   userModel.register(userData, req.body.password).then((registeredUser) => {
+//     passport.authenticate("local")(req, res, () => {
+//       res.redirect("/profile");
+//     });
+//   });
+// });

@@ -17,7 +17,13 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    minlength: 12, // You can adjust the minimum password length
+    minlength: 6, // You can adjust the minimum password length
+  },
+  categories: {
+    type: String,
+  },
+  description: {
+    type: String,
   },
   fullname: {
     type: String,

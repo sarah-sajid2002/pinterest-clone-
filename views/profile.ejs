@@ -4,35 +4,128 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon" />
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- bootstrap css link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="/stylesheets/profile.css" />
     <title>profile | pinterest</title>
   </head>
   <body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="/images/pinterest clone.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Pinterest
+      </a>
+      <a class="navbar-brand ml-3" href="/feed">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <a class="navbar-brand ml-23" href="/profile">Profile</a>
+          <a class="navbar-brand ml-3" href="/upload">Create Pin</a>
+          <a class="navbar-brand ml-3" href="/logout">logout</a>
+        </ul>
+      </div>
+    </nav>
+    <!-- upper part -->
     <div id="algn">
       <div id="card">
         <div id="upper-bg">
           <img
-            src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF0dXJlfGVufDB8fDB8fHww"
+            src="/images/uploads/<%=user.coverPhoto%>"
             alt=""
             class="coverPhoto"
           />
           <img
-            src="https://plus.unsplash.com/premium_photo-1670282393309-70fd7f8eb1ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
+            src="/images/uploads/<%=user.dp%>"
             alt="profile-pic"
             class="profile-pic"
           />
         </div>
         <div id="lower-bg">
           <div class="text">
-            <h1 class="name">username</h1>
-            <p class="title">description</p>
-            <h3 class="title">categories</h3>
+            <h1 class="name"><%= user.username %></h1>
+            <p class="title">@<%= user.username %><%=user.fullname%></p>
+            <div class="categories">
+              <h3 class="title">
+                <%if(user.categories){%> <%= user.categories %> <%}else{%>
+                <p>add categories</p>
+                <%}%>
+              </h3>
+            </div>
+
+            <div class="categories">
+              <h3 class="title">
+                <%if(user.categories){%> <%= user.description %> <%}else{%>
+                <p>add description</p>
+                <%}%>
+              </h3>
+            </div>
+
             <div id="btn">
-              <button class="msg">share</button>
-              <button class="msg">edit profile</button>
+              <button class="msg"><a href="">share</a></button>
+              <button class="msg">
+                <a href="/updateProfile"
+                  >edit profile <i class="fas fa-pencil-alt"></i>
+                </a>
+              </button>
+              <button class="msg"><a href="/logout">logout</a></button>
+              <button class="msg"><a href="/upload">Create Pin</a></button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- created and saved heading -->
+    <div class="centralLine">
+      <button>Created</button>
+      <button>Saved</button>
+    </div>
+
+    <!-- created portion -->
+    <div class="createdportion">
+      <div class="cards">
+        <% user.posts.forEach(function(post) { %>
+        <div class="card" style="width: 18rem">
+          <img
+            src="/images/uploads/<%=post.image %>"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <label class="title">Title:</label>
+            <h5 class="card-title"><%=post.text %></h5>
+          </div>
+
+          <div class="card-body">
+            <label class="title">Description:</label>
+            <p class="card-title"><%=post.description %></p>
+          </div>
+        </div>
+        <% }) %>
       </div>
     </div>
   </body>
