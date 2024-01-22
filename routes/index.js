@@ -28,11 +28,6 @@ router.get("/login", (req, res) => {
   res.render("login", { error: req.flash("error") });
 });
 
-// feed route
-router.get("/feed", (req, res) => {
-  res.render("feed");
-});
-
 // upload image route
 router.get("/upload", isLoggedIn, async (req, res) => {
   res.render("upload", { error: "" });
@@ -194,23 +189,16 @@ router.post(
   }
 );
 
-// find all images (posts) from all users
-router.post("/allImages", async (req, res) => {
-  try {
-    // Find all posts and populate user details for each post
-    const allImages = await userModel
-      .find({ posts: { $exists: true } })
-      .populate("posts");
-    console.log(allImages);
-    res.render("feed", { allImages }); // Pass allImages to the view
-
-    // Iterate through each post to log the user ID
-  } catch (error) {
-    console.error("Error fetching all images:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
+// API route for fetching more feed items
+router.get("/feed", isLoggedIn, async (req, res) => {
+  console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiii");
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  const posts = await postModel.find().populate("user");
+  console.log("posts", posts);
+  console.log("user", user);
+  res.render("feed", { user, posts });
 });
 
 module.exports = router;
-
-// editing profile route

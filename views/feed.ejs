@@ -46,50 +46,17 @@
       </div>
     </nav>
 
-    <!-- <div class="container">
-      <div class="box">
-        <a
-          href="ttps://oriontralelblog.com/wp-content/uploads/2019/08/IMG_6310.jpg"
-        >
-          <img
-            class="boxImg"
-            src="https://oriontravelblog.com/wp-content/uploads/2019/08/IMG_6310.jpg"
-            alt="image"
-        /></a>
-        <div class="title">
-          <p class="title">title:</p>
-        </div>
-        <div class="user">
-          <img class="userImage" src="/images/pinterest clone.png" alt="" />
-          <p class="title">channel name</p>
-        </div>
-      </div>
-    </div> -->
-
+    <!-- Add this container for your feed items -->
     <div class="container">
-      <% allImages.forEach(function(post) { %>
-      <div class="box">
-        <a href="/allImages">
-          <img
-            class="boxImg"
-            src="/images/uploads/<%= post.image %>"
-            alt="image"
-          />
-        </a>
-        <div class="title">
-          <p class="title">Title: <%= post.text %></p>
-        </div>
-        <img
-          class="userImage"
-          src="/images/uploads/<%= post.user.dp %>"
-          alt=""
-        />
-        <p class="title"><%= post.user.username %></p>
+      <!-- feed-items.ejs -->
+      <% posts.forEach(function(elem){ %>
+      <div class="content">
+        <!-- Render your feed item content here -->
+        <img src="/images/uploads/<%= elem.image %>" alt="" />
+        <p class="title"><%= elem.text %></p>
       </div>
-      <% }); %>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="/javascripts/feed.js"></script>
+      <% }) %>
+    </div>
   </body>
 </html>

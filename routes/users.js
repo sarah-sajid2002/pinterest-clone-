@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
   },
   dp: {
     type: String, // You can store the URL or file path of the profile picture
+    default: "https://i.pngimg.me/thumb/f/350/comdlpng6957535.jpg",
   },
   coverPhoto: {
     type: String, // You can store the URL or file path of the profile picture
