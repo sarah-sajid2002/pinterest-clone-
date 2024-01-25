@@ -7,7 +7,7 @@ const passport = require("passport");
 passport.use(new localStrategy(userModel.authenticate()));
 const upload = require("./multer"); // Import the Multer
 
-// profile route
+// index route
 router.get("/", (req, res) => {
   res.render("index");
 });
@@ -31,6 +31,21 @@ router.get("/login", (req, res) => {
 // upload image route
 router.get("/upload", isLoggedIn, async (req, res) => {
   res.render("upload", { error: "" });
+});
+
+// logout route
+router.get("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/login");
+  });
+});
+
+// update profile get route
+router.get("/updateProfile", isLoggedIn, (req, res) => {
+  res.render("updateProfile");
 });
 
 // register route
@@ -77,21 +92,6 @@ router.post(
   }),
   function (req, res) {}
 );
-
-// logout route
-router.get("/logout", function (req, res, next) {
-  req.logout(function (err) {
-    if (err) {
-      return next(err);
-    }
-    res.redirect("/login");
-  });
-});
-
-// update profile get route
-router.get("/updateProfile", isLoggedIn, (req, res) => {
-  res.render("updateProfile");
-});
 
 // isLoggedIn middleware
 function isLoggedIn(req, res, next) {

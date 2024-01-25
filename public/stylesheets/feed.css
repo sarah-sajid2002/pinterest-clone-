@@ -177,8 +177,7 @@ input {
   .toggle .l1 {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
-
-  .toggle .l2 {
+  x` .toggle .l2 {
     opacity: 0;
   }
 
